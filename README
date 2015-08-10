@@ -1,9 +1,9 @@
 Thanks a lot to Bartosz Kiełczewski for his springboot tutorial (see : http://kielczewski.eu/2014/04/developing-restful-web-service-with-spring-boot/)
-I added this topics :
+I added these topics :
 
 1) I replaced maven configuration by gradle.
 2) I created an ExampleController to test a POC with 2 differents services. This controller return an "Hello World"
 3) I completed the UserController to achieve a restful-web-service with the POST-PUT-GET-DELETE method.
 
-You can start the application with the "gralde bootRun" command line
+You can start the application with the "gradle bootRun" command line
 I advice to test the application with the postman chrome plugin

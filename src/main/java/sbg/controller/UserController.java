@@ -1,6 +1,5 @@
 package sbg.controller;
 
-import sbg.UserAlreadyExistsException;
 import sbg.domain.User;
 import org.springframework.web.bind.annotation.*;
 import sbg.service.UserService;
