@@ -1,0 +1,6 @@
+Thanks a lot to Bartosz Kiełczewski for his springboot tutorial (see : http://kielczewski.eu/2014/04/developing-restful-web-service-with-spring-boot/)
+I added this topics :
+
+1) I replaced maven configuration by gradle.
+2) I created an ExampleController to test a POC with 2 differents services. This controller return an "Hello World"
+3) I completed the UserController to achieve a restful-web-service with the POST-PUT-GET-DELETE method.
