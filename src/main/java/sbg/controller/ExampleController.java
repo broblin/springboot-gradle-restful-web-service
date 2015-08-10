@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 public class ExampleController {
 
     @RequestMapping("/example")
-    String home() {
-        return "Hello World!";
+    String home(@RequestParam(value="name",defaultValue = "world") String name) {
+        return String.format("Hello %s !",name);
     }
 }
