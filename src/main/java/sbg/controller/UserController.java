@@ -25,6 +25,11 @@ public class UserController {
         return userService.save(user);
     }
 
+    @RequestMapping(value = "/user", method = RequestMethod.PUT)
+    public User updateUser(@RequestBody @Valid final User user) {
+        return userService.update(user.getId(),user.getPassword());
+    }
+
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable String id) {
         return userService.get(id);

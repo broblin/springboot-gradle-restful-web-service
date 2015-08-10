@@ -4,3 +4,6 @@ I added this topics :
 1) I replaced maven configuration by gradle.
 2) I created an ExampleController to test a POC with 2 differents services. This controller return an "Hello World"
 3) I completed the UserController to achieve a restful-web-service with the POST-PUT-GET-DELETE method.
+
+You can start the application with the "gralde bootRun" command line
+I advice to test the application with the postman chrome plugin

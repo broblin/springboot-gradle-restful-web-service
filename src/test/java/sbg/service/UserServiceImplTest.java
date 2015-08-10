@@ -94,6 +94,26 @@ public class UserServiceImplTest {
         assertNotNull(anException);
     }
 
+    @Test
+    public void shouldUpdateUser_AnExceptionShouldBeTrownIfNotExist(){
+        String newPassword = "a new password";
+        stubRepositoryToReturnExistingUser();
+        User user = userService.update(TEST_ID,newPassword);
+        assertNotNull(user);
+        assertEquals(TEST_ID, user.getId());
+        assertEquals(newPassword, user.getPassword());
+        verify(userRepository, times(1)).save(user);
+
+        Exception anException = null;
+        try {
+            userService.update("not_exists",newPassword);
+            fail("Expected exception");
+        } catch (UserNotFoundException ignored) {
+            anException = ignored;
+        }
+        assertNotNull(anException);
+    }
+
     private void stubRepositoryToReturnExistingUser() {
         User user = createUser();
         when(userRepository.findOne(user.getId())).thenReturn(user);

@@ -34,7 +34,10 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User update(String id, String password) {
-        return null;
+        User user = get(id);
+        user.setPassword(password);
+        repository.save(user);
+        return user;
     }
 
     @Override
