@@ -9,9 +9,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 
@@ -71,6 +69,24 @@ public class UserServiceImplTest {
         Exception anException = null;
         try {
             userService.get("not_exists");
+            fail("Expected exception");
+        } catch (UserNotFoundException ignored) {
+            anException = ignored;
+        }
+        assertNotNull(anException);
+    }
+
+    @Test
+    public void shouldDeleteUser_AnExceptionShouldBeTrownIfNotExist(){
+        stubRepositoryToReturnExistingUser();
+        User user = userService.delete(TEST_ID);
+        assertNotNull(user);
+        assertEquals(TEST_ID, user.getId());
+        verify(userRepository, times(1)).delete(user);
+
+        Exception anException = null;
+        try {
+            userService.delete("not_exists");
             fail("Expected exception");
         } catch (UserNotFoundException ignored) {
             anException = ignored;

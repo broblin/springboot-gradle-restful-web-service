@@ -49,6 +49,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User delete(String id) {
-        return null;
+        User user = get(id);
+        repository.delete(user);
+        return user;
     }
 }
