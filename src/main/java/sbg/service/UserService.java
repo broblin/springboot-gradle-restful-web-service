@@ -1,5 +1,6 @@
 package sbg.service;
 
+import org.springframework.data.domain.Page;
 import sbg.UserAlreadyExistsException;
 import sbg.domain.User;
 
@@ -14,4 +15,6 @@ public interface UserService {
     User get(String id);
 
     User delete(String id);
+
+    Page<User> findAll(Integer pageNumber,Integer pageSize);
 }

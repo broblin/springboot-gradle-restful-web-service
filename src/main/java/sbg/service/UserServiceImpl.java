@@ -1,5 +1,8 @@
 package sbg.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import sbg.UserAlreadyExistsException;
 import sbg.UserNotFoundException;
 import sbg.domain.User;
@@ -55,5 +58,11 @@ public class UserServiceImpl implements UserService {
         User user = get(id);
         repository.delete(user);
         return user;
+    }
+
+    @Override
+    public Page<User> findAll(Integer pageNumber, Integer pageSize) {
+        //the 2 last parameters are optional
+        return repository.findAll(new PageRequest(pageNumber,pageSize, Sort.Direction.ASC,"id"));
     }
 }
